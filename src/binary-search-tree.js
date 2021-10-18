@@ -90,25 +90,20 @@ module.exports = class BinarySearchTree {
         node.right = removeNode(node.right, data);
         return node;
       } else {
-        // equal - should remove this item
         if (!node.left && !node.right) {
-          // put null instead of item
           return null;
         }
 
         if (!node.left) {
-          // set right child instead of item
           node = node.right;
           return node;
         }
 
         if (!node.right) {
-          // set left child instead of item
           node = node.left;
           return node;
         }
 
-        // both children exists for this item
         let minFromRight = node.right;
         while (minFromRight.left) {
           minFromRight = minFromRight.left;
